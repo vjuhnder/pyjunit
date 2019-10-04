@@ -10,6 +10,7 @@ def testBasicToConsole():
 
     test_cases = [TestCase('testcase1', '', 123.345, 'I am stdout!', 'I am stderr!')]
     test_cases.append(TestCase('testcase2', '', .0452, '', ''))
+    test_cases[1].add_failure_info('Invalid File!')
     test_cases.append(TestCase('testcase3', '', .0452, '', ''))
     ts = [TestSuite("dspunit", test_cases)]
     # pretty printing is on by default but can be disabled using prettyprint=False
