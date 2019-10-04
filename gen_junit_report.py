@@ -9,7 +9,7 @@ def testBasicToConsole():
     '''
 
     test_cases = [TestCase('TestCase1', 'DSPHistograms.noisefloorcalc', 123.345, 'I am stdout!', 'I am stderr!')]
-    ts = [TestSuite("TestHistogram", test_cases)]
+    ts = [TestSuite("dspunit", test_cases)]
     # pretty printing is on by default but can be disabled using prettyprint=False
     print(TestSuite.to_xml_string(ts, prettyprint=True))
     with open(r'junit.xml', mode='w') as lFile:
