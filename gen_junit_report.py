@@ -8,7 +8,9 @@ def testBasicToConsole():
         actually work.
     '''
 
-    test_cases = [TestCase('TestCase1', 'DSPHistograms.noisefloorcalc', 123.345, 'I am stdout!', 'I am stderr!')]
+    test_cases = [TestCase('testcase1', '', 123.345, 'I am stdout!', 'I am stderr!')]
+    test_cases.append(TestCase('testcase2', '', .0452, '', ''))
+    test_cases.append(TestCase('testcase3', '', .0452, '', ''))
     ts = [TestSuite("dspunit", test_cases)]
     # pretty printing is on by default but can be disabled using prettyprint=False
     print(TestSuite.to_xml_string(ts, prettyprint=True))
