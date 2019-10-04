@@ -1,12 +1,6 @@
 #!/usr/bin/python3
-#junit-xml 1.0 downloaded from https://pypi.python.org/pypi/junit-xml
+
 from junit_xml import TestSuite, TestCase
-
-#Good article that has examples of how Jenkins parses JUnit XML to display output:
-#http://nelsonwells.net/2012/09/how-jenkins-ci-parses-and-displays-junit-output/
-
-#One version of JUnit XML schema: http://windyroad.org/dl/Open%20Source/JUnit.xsd
-
 
 def testBasicToConsole():
     ''' Perform the very basic test with 1 suite and 1 test case, output to console.
@@ -14,12 +8,12 @@ def testBasicToConsole():
         actually work.
     '''
 
-    test_cases = [TestCase('Test1', 'some.class.name', 123.345, 'I am stdout!', 'I am stderr!')]
-    ts = [TestSuite("my test suite", test_cases)]
+    test_cases = [TestCase('TestCase1', 'DSPHistograms.noisefloorcalc', 123.345, 'I am stdout!', 'I am stderr!')]
+    ts = [TestSuite("TestHistogram", test_cases)]
     # pretty printing is on by default but can be disabled using prettyprint=False
-    print(TestSuite.to_xml_string(ts, prettyprint=False))
-    with open(r'junit.xml', mode='a') as lFile:
-        TestSuite.to_file(lFile, ts, prettyprint=False)
+    print(TestSuite.to_xml_string([ts], prettyprint=True))
+    with open(r'junit.xml', mode='w') as lFile:
+        TestSuite.to_file(lFile, [ts], prettyprint=True)
         lFile.close()
 
 def testBasicInfoToConsole():
